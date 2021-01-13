@@ -10,6 +10,31 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const employees = [];
+
+function addMoreEmployees() {
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        message: "Would you like the add another employee?",
+        choices: ["Yes", "No"],
+        name: "addEmployee",
+      },
+    ])
+    .then(function ({ addEmployee }) {
+      if (addEmployee === "Yes") {
+        questionOne();
+      } else {
+        render(employees);
+        fs.writeFile("./myteam.html", render(employees), (err) => {
+          if (err) throw err;
+          console.log("you created a new file!");
+        });
+      }
+    });
+}
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 function questionOne() {
@@ -35,78 +60,111 @@ function questionOne() {
 }
 
 function manager() {
-  inquirer.prompt([
-    {
-      type: "input",
-      message: "What is your name?",
-      name: "name",
-    },
-    {
-      type: "number",
-      message: "What is your employee ID?",
-      name: "id",
-    },
-    {
-      type: "input",
-      message: "What is your email?",
-      name: "email",
-    },
-    {
-      type: "number",
-      message: "What is your office number?",
-      name: "office",
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "number",
+        message: "What is your employee ID?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+      },
+      {
+        type: "number",
+        message: "What is your office number?",
+        name: "office",
+      },
+    ])
+    .then(function (answers) {
+      const manager = new Manager(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.office
+      );
+      employees.push(manager);
+      addMoreEmployees();
+    });
 }
 
 function engineer() {
-  inquirer.prompt([
-    {
-      type: "input",
-      message: "What is your name?",
-      name: "name",
-    },
-    {
-      type: "number",
-      message: "What is your employee ID?",
-      name: "id",
-    },
-    {
-      type: "input",
-      message: "What is your email?",
-      name: "email",
-    },
-    {
-      type: "input",
-      message: "What is your Github username?",
-      name: "github",
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "number",
+        message: "What is your employee ID?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What is your Github username?",
+        name: "github",
+      },
+    ])
+    .then(function (answers) {
+      const engineer = new Engineer(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.github
+      );
+      employees.push(engineer);
+      addMoreEmployees();
+    });
 }
 
 function intern() {
-  inquirer.prompt([
-    {
-      type: "input",
-      message: "What is your name?",
-      name: "name",
-    },
-    {
-      type: "number",
-      message: "What is your employee ID?",
-      name: "id",
-    },
-    {
-      type: "input",
-      message: "What is your email?",
-      name: "email",
-    },
-    {
-      type: "input",
-      message: "What school do you currently attend?",
-      name: "school",
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "number",
+        message: "What is your employee ID?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What school do you currently attend?",
+        name: "school",
+      },
+    ])
+    .then(function (answers) {
+      const intern = new Intern(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.school
+      );
+      employees.push(intern);
+      addMoreEmployees();
+    });
 }
 questionOne();
 // After the user has input all employees desired, call the `render` function (required
