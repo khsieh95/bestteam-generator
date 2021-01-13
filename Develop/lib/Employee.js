@@ -7,8 +7,10 @@ class Employee {
     this.email = email;
   }
   getName() {
-    const newEmployee = new Employee(name, email);
-    return newEmployee;
+    return this.name;
+  }
+  getId() {
+    return this.id;
   }
 }
 
