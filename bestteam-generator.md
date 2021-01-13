@@ -2,6 +2,8 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
+<img width="720" alt="Screen Shot 2021-01-13 at 3 31 32 PM" src="https://user-images.githubusercontent.com/74025123/104525199-82b05300-55b4-11eb-8424-c625eceaf06d.png">
+
 [Video Tutorial of Application](https://youtu.be/aIzkGI60BAc)
 
 ## Description
