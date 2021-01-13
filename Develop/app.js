@@ -27,9 +27,9 @@ function questionOne() {
       if (role === "Manager") {
         manager();
       } else if (role === "Engineer") {
-        console.log("Hi Im an engineer");
+        engineer();
       } else {
-        console.log("Hey Im an Intern");
+        intern();
       }
     });
 }
@@ -42,7 +42,7 @@ function manager() {
       name: "name",
     },
     {
-      type: "input",
+      type: "number",
       message: "What is your employee ID?",
       name: "id",
     },
@@ -55,6 +55,56 @@ function manager() {
       type: "number",
       message: "What is your office number?",
       name: "office",
+    },
+  ]);
+}
+
+function engineer() {
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "What is your name?",
+      name: "name",
+    },
+    {
+      type: "number",
+      message: "What is your employee ID?",
+      name: "id",
+    },
+    {
+      type: "input",
+      message: "What is your email?",
+      name: "email",
+    },
+    {
+      type: "input",
+      message: "What is your Github username?",
+      name: "github",
+    },
+  ]);
+}
+
+function intern() {
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "What is your name?",
+      name: "name",
+    },
+    {
+      type: "number",
+      message: "What is your employee ID?",
+      name: "id",
+    },
+    {
+      type: "input",
+      message: "What is your email?",
+      name: "email",
+    },
+    {
+      type: "input",
+      message: "What school do you currently attend?",
+      name: "school",
     },
   ]);
 }
