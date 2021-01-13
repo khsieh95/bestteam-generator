@@ -25,7 +25,7 @@ function questionOne() {
     .then(function ({ role }) {
       console.log(role);
       if (role === "Manager") {
-        console.log("Hi im the manager");
+        manager();
       } else if (role === "Engineer") {
         console.log("Hi Im an engineer");
       } else {
@@ -34,6 +34,30 @@ function questionOne() {
     });
 }
 
+function manager() {
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "What is your name?",
+      name: "name",
+    },
+    {
+      type: "input",
+      message: "What is your employee ID?",
+      name: "id",
+    },
+    {
+      type: "input",
+      message: "What is your email?",
+      name: "email",
+    },
+    {
+      type: "number",
+      message: "What is your office number?",
+      name: "office",
+    },
+  ]);
+}
 questionOne();
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
