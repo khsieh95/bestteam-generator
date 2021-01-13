@@ -1,11 +1,11 @@
 // TODO: Write code to define and export the Employee class
 
 class Employee {
-  constructor(id, email, github) {
+  constructor(id, name, email) {
     this.id = id;
+    this.name = name;
     this.email = email;
-    this.github = github;
   }
 }
 
-module.export = Employee;
+module.exports = Employee;
