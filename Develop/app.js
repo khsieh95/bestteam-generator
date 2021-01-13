@@ -27,7 +27,7 @@ function addMoreEmployees() {
         questionOne();
       } else {
         render(employees);
-        fs.writeFile("./myteam.html", render(employees), (err) => {
+        fs.writeFile(outputPath, render(employees), (err) => {
           if (err) throw err;
           console.log("you created a new file!");
         });
