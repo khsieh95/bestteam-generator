@@ -7,3 +7,5 @@ class Employee {
     this.github = github;
   }
 }
+
+module.export = Employee;
